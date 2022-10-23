@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div style = 'width:1440px; margin:auto;' class = 'home_container'> 
+    <div class = 'ariza_topshirish' style ='width: 700px; height:200px; background:white;'>
+        <div class="wrapper" style = 'background:white;height:300px;'> <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"> <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/> <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
+            
+        </div>
+        <div class = 'done_info'>
+            <h3> Malumotlar tekshirish uchun yuborildi. </h3>
+            <p> Tez orada siz bilan operatorimiz bo'glanib, barcha <br> malumotlarni aniqlashtiradi.</p>
+        </div>
+        
+    
+    </div>
+    <div   class = 'home_container_2'>
+        <p>
+            Yuqori sinflarda bolalar shaxs bo'lib, jamoa <br> shakllanadi. Ayni o'sha paytda ularni o'zlar<br> o'rgangan muhitdan ajratib qo'ymaslik kerak. 
+        </p>
+        <div class = 'home_container_prezident'>
+            <img src = '{% static 'image/prezident.jpg' %}' width = '55' height = '55' >
+            <div class = 'home_container_prezident_div'>
+                <span class = 'home_container_prezident_span1'> Shavkat Mirziyoyev</span> <br>
+                <span class = 'home_container_prezident_span2'> O'zbekiston Respublikasi Prezidenti</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,79 @@
+{% extends 'admin.html' %}
+{% load static %}
+
+{% block content %}
+<div class = 'admin_headers'>
+    <div class = 'admin_headers_buttons'>
+        <a  class =  'admin_headers_buttons_item' style = 'color: white; background: #3366fe;opacity:1; padding: 10px 35px;margin-left: 10px;' >
+            DASHBOARD 
+        </a>
+        <a  class =  'admin_headers_buttons_item'  href = '{% url 'admin_homiylar' %}' style = 'color:  #3366fe; opacity:1; padding: 10px 35px;margin-left: 10px;'>
+            HOMIYLAR
+        </a>
+        <a  class =  'admin_headers_buttons_item'  href = '{% url 'admin_talabalar' %}' style = 'color:  #3366fe;opacity:1; padding: 10px 35px;margin-left: 10px;' >
+            TALABALAR
+        </a>
+    </div>
+
+    <div class = 'admin_headers_search'>
+        <div class = 'admin_headers_search_items'>
+            <img src="{% static 'image/search.png' %}"  width = '20' height = '20'>
+            <input type = 'text' placeholder="Izlash">
+        </div>
+
+        <div class = 'admin_headers_search_item'>
+            <img src="{% static 'image/filter2.png' %}"  width = '13' height = '13'>
+            <button class = 'admin_headers_search_item_button'   data-mdb-toggle="modal" data-mdb-target="#exampleModal">Filter</button>
+
+        </div>
+    </div>
+</div>
+
+<div  class = 'admin_section1 ' style = 'transition: all 2s;' onclick="myButton()">
+    <div class="admin_section">
+        <div class = 'admin_section_results'>
+            <div class = 'admin_section_results_items'>
+                
+                <div class = 'admin_section_results_image'>
+                    <img src = '{% static 'image/money.png' %}' width = '25' height = '25' >
+                </div>
+                <div class = 'admin_section_results_text'>
+                    <p>Jami to'langan summa</p>
+                    <p>{{jami}} <span>UZS</span></p>
+                </div>
+                
+            </div>
+            <div class = 'admin_section_results_items'> 
+                <div class = 'admin_section_results_image' style = 'background: rgba(237, 199, 0, 0.1);'>
+                    <img src = '{% static 'image/money.png' %}' width = '25' height = '25' >
+                </div>
+                <div class = 'admin_section_results_text'>
+                    <p>Jami so'ralgan summa</p>
+                    <p>{{talab}} <span>UZS</span></p>
+                </div>
+            </div>
+            <div class = 'admin_section_results_items'>
+                <div class = 'admin_section_results_image' style = 'background: rgba(237, 114, 0, 0.1);'>
+                    <img src = '{% static 'image/money.png' %}' width = '25' height = '25' >
+                </div>
+                <div class = 'admin_section_results_text'>
+                    <p>To'lanishi kerak summa</p>
+                    <p>{{kerak}} <span>UZS</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class = 'admin_section_grafik' >
+            <div class = 'admin_section_grafik_info'>
+                <p class = 'admin_section_grafik_info_p'>Homiylar va talabalar soni</p>
+                <p class = 'admin_section_grafik_info_p2'><div class = 'admin_section_grafik_span1'></div> <span class = 'admin_section_grafik_span'> Homiylar</span> <div class = 'admin_section_grafik_span2'></div> <span class = 'admin_section_grafik_span'> Talabalar</span></span>
+
+            </div>
+            <div id="chartContainer" style="height: 300px; width: 950px;margin:auto;">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock content %}

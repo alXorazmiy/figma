@@ -1,0 +1,155 @@
+{% extends 'admin.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class = 'admin_headers'>
+    <div class = 'admin_headers_buttons'>
+        <a class =  'admin_headers_buttons_item' href = '{% url 'admin_dashboard' %}' style = 'color:  #3366fe;opacity:1; padding: 10px 35px;margin-left: 10px;' >
+            DASHBOARD 
+        </a>
+        <a  class =  'admin_headers_buttons_item' href = '{% url 'admin_homiylar' %}'  style = 'color:  #3366fe;opacity:1; padding: 10px 35px;margin-left: 10px;'>
+            HOMIYLAR
+        </a>
+        <a  class =  'admin_headers_buttons_item'  style = 'color: white; background: #3366fe;opacity:1; padding: 10px 35px;margin-left: 10px;'  >
+            TALABALAR
+        </a>
+    </div>
+
+    <div class = 'admin_headers_search'>
+        <div class = 'admin_headers_search_items'>
+            <form method = 'GET' action = '?/'>
+                <button type = 'submit' style = 'border: none;background:#E8E8E8;'> <img src="{% static 'image/search.png' %}"  width = '20' height = '20'></button>
+                <input type = 'text' placeholder="Izlash" name = 'izlash'>
+            </form>
+        </div>
+
+        <div class = 'admin_headers_search_item'>
+            <img src="{% static 'image/filter2.png' %}"  width = '13' height = '13'>
+            <button class = 'admin_headers_search_item_button' type="button"  data-mdb-toggle="modal" data-mdb-target="#exampleModal">Filter</button>
+
+        </div>
+    </div>
+</div>
+
+<div class = 'talabalar_qoshish' style ='width:1360px;margin: auto;margin-top:30px;'>
+    <a href = '{% url 'admin_talabalar_add' %}'> <img src = '{% static 'image/add.png' %}' width = '20' height = '20'> Talaba qo'shish</a>
+</div>
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" style = 'margin-top: 50px; height: 600px; ' aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style  = 'height:30px;' >
+                <h5 class="modal-title" id="exampleModalLabel">Filter</h5>
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method = 'GET' action = '?/'>
+                <div class="modal-body" style  = 'margin-top:10px;'>
+                    
+                        <label for = 'turi' class = 'ariza_holati_label'>Talabalik turi</label>
+                        <select id="turi" class = 'ariza_holati_select' name = 'select_turi'>
+                            <option value ='barchasi'>Barchasi</option>
+                            <option value="bakalavr">Bakalavr</option>
+                            <option value="magister">Magister</option>
+                        </select>
+
+                        <label for = 'otm' class = 'ariza_holati_label' style = 'margin-top: 15px;'>Otm</label>
+                        <select id="otm" class = 'ariza_holati_select' name = 'otm'>
+                            <option value ='barchasi'>Barchasi</option>
+                            {% for item in otm %}
+                            <option value="{{item}}">{{item}}</option>
+                            {% endfor %}
+                        </select>
+                        
+                  
+                    
+                </div>
+               
+               
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal"> <img src = "{% static 'image/clear.png' %}" width = '20' height = '20' > Close</button>
+                        <button type="submit" class="btn btn-primary"> <img src = "{% static 'image/visible-32.png' %}" width = '20' height = '20' >  Natijalarni ko'rish</button>
+                
+                    </div>
+                </from>
+                
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div  class = 'admin_section2 admin_section' style ='padding-top: 20px;' >
+    <div class="admin_section">
+        <div class = 'admin_section_table'> 
+            <table  id="example" class="table table-striped" style="width:100%" >
+                <thead class = 'admin_section_table_head'>
+                  <tr>
+                    <th class = 'admin_section_table_th'> # </th>
+                    <th class = 'admin_section_table_th'>F.I.SH</th>
+                    <th class = 'admin_section_table_th'>TALABALIK TURI</th>
+                    <th class = 'admin_section_table_th'>OTM</th>
+                    <th class = 'admin_section_table_th'>AJRATILINGAN SUMMA</th>
+                    <th class = 'admin_section_table_th'>KONTRAKT MIQDORI</th>
+                    <th class = 'admin_section_table_th'>AMALLAR</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for item in homiy %}
+                    <tr class = 'admin_section_table_tr'>
+                        <td  >{{ item.pk}}</td>
+                        <td >{{ item.fish}}</td>
+                        <td >{{ item.turi}}</td>
+                        <td >{{ item.otm}}  </td>
+                        <td> {{ item.aj_summa}} <span>UZS</span></td>
+                        
+                        <td >{{ item.contract}} <span>UZS</span></td>
+                        <td ><a href = '{% url "admin_talabalar_single" item.pk %}'><img src = "{% static 'image/eye.png' %}" width = '20' height = '20'></a></td>
+                    </tr>
+                    {% endfor %}
+                    
+              </tbody>
+              
+            </table>
+            <div class = ''>
+                <p class = 'admin_section_table_pages_p'> {{button_if}} dan {{ x }}-{{ x2 }}  ko'rsatilmoqda</p>
+                <nav aria-label="..."  class = 'admin_section_table_pages'>
+                    <ul class="pagination">
+                        {% if homiy.has_previous %}
+                            <li class="page-item ">
+                                <a class="page-link"  href="?page= {{ homiy.previous_page_number }} ">Previous</a>
+                            </li>
+                        {% endif %}
+                      
+                        {% for x in button_list %}
+                            {% if x ==  homiy.number  %}
+                                <li class="page-item active" aria-current="page">
+                                    <a class="page-link" href="?page={{x}}">{{x}} <span class="visually-hidden">(current)</span></a>
+                                </li>
+                            {% else %}
+                            <li class="page-item ">
+                                <a class="page-link" href="?page={{x}}">{{x}} </a>
+                            </li>
+                            {% endif %}
+
+                        {% endfor %}
+                        {% if homiy.has_next %}
+                            <li class="page-item ">
+                                <a class="page-link"  href="?page= {{ homiy.next_page_number }} ">Next</a>
+                            </li>
+                        {% endif %}
+                     
+                    </ul>
+                  </nav>
+            </div>
+     
+        </div>  
+    </div>
+</div>
+
+
+
+{% endblock content %}

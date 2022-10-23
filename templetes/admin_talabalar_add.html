@@ -1,0 +1,59 @@
+{% extends 'admin.html' %}
+{% load static %}
+
+{% block content %}
+<div class = 'homiy_detail'>
+    <div class = 'homiy_detail_items'>
+        <a href = '{% url 'admin_talabalar' %}'><img src = '{% static 'image/back.png' %}' width = '20' height = '20' ></a>
+        <span class = 'homiy_detail_fish'> Talaba qo'shish </span>
+    </div>
+</div>
+
+
+<div class = 'talaba_add'>
+    <form method = 'POST' >
+        {% csrf_token %}
+    <div style = 'margin: 30px 0 0 30px; display:flex;'>
+        <div class= 'homiy_detail_phone'>
+            <label for = 'fish' class = 'ariza_holati_label' style = 'font-size: 14px;'> F.I.SH. (FAMILIYA ISM SHARIFINGIZ)</label>
+            <input type = 'text' id = 'fish' name = 'ism' placeholder = "Raxmonov Husniddin Rashidbek o'g'li" class = 'homiy_edit_input' style = 'width: 330px; outline:none;'>
+        </div>
+        <div class= 'homiy_detail_phone'>
+            <label for = 'phone' class = 'ariza_holati_label' style = 'font-size: 14px;'> TELEFON RAQAM</label >
+            <input type = 'tel' id = 'phone' name = 'phone' value = '+998' class = 'homiy_edit_input' style = 'width: 330px; outline:none;'>
+        </div>
+    </div>
+    <div style = 'margin: 30px 0 0 30px;' >
+        <label for = 'otm' class = 'ariza_holati_label' style = 'font-size: 14px;'> OTM</label>
+        <select id="otm" class = 'ariza_holati_select' name = 'otm' style = 'width:700px' >
+            <option >Otmni tanlang</option>
+            {% for item in otm %}
+            <option value="{{item}}">{{item}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div style = 'margin: 30px 0 0 30px; display:flex;'>
+        <div class= 'homiy_detail_phone'>
+            <label for = 'turi' class = 'ariza_holati_label'>Talabalik turi</label>
+                        <select id="turi" class = 'ariza_holati_select' name = 'select_turi'  style = 'width: 330px'>
+                            <option value ='barchasi'>Barchasi</option>
+                            <option value="bakalavr">Bakalavr</option>
+                            <option value="magister">Magister</option>
+                        </select>
+        </div>
+        <div class= 'homiy_detail_phone'>
+            <label for = 'summa' class = 'ariza_holati_label' style = 'font-size: 14px;'> KONTRAKT SUMMA</label>
+            <input type = 'text' id = 'summa' name = 'summa'  class = 'homiy_edit_input' style = 'width: 330px; outline:none;'>
+ 
+        </div>
+    </div>
+    <div class = 'talabalar_qoshish_add' >
+        <button type = 'submit'> <img src = '{% static 'image/add.png' %}' width = '20' height = '20'> Qo'shish</button>
+    </div>
+    </form>
+    
+    
+</div>
+
+{% endblock content %}

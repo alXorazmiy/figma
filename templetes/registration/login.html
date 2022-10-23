@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+   
+        <title>Kirish</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link rel="stylesheet" href="{% static 'css/login1.css' %}">
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <script src="https://www.recaptcha.net/recaptcha/api.js" async defer></script>
+        <style>
+            body {
+                background-color: #F5F5F7;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="login-container">
+            <div class = ''>
+                <div class = 'navbar_title_image'></div>
+                <p class = 'navbar_title_text'>METSENAT <span class = 'navbar_title_logo2'> CLUB</span> </p>
+                
+            </div>
+            <div class="login_container2">
+                <h2 class = 'login-title'>Kirish</h2>
+                <form method = 'post' class="login-form">
+                    {% csrf_token %}
+                
+                    <label for="id_username" class=" login-label">Login<span class="asteriskField"></span> </label>   
+                    <input type="text" name="username"  maxlength="150" class="login-username" required id="id_username" placeholder = 'Admin'> 
+                         
+                    <label for="id_password" class=" login-label">Parol<span class="asteriskField"></span> </label> 
+                    <input type="password" name="password"  class="login-username" required id="id_password" placeholder = 'parol123'> 
+                    <div class="g-recaptcha" data-sitekey="6LdZVGYiAAAAAGMwR8fltU1FkhXL4dutSJuPXuL-"></div>
+                    <button type = 'submit' class="login-button">KIRISH</button>
+                </form>
+    
+                
+            </div>
+            
+        </div>
+    
+    </body>
+</html>

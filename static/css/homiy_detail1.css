@@ -1,0 +1,156 @@
+.homiy_detail {
+    height: 70px;
+    vertical-align: center;
+    align-items: center;
+    background-color: white;
+    width: 1360px;
+    margin:auto;
+}
+
+
+
+.homiy_detail_items {
+    padding: 25px 0 0 200px;
+    align-items: center;
+}
+
+.homiy_detail_fish {
+    align-items: center;
+    padding-left: 10px;
+    font-family: 'SF Pro Display', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    /* identical to box height, or 117% */
+
+
+    /* Dark / Dark 400 */
+
+    color: #28293D;
+}
+
+.homiy_detail_holat {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    padding: 6px 10px;
+    color: #00CF83;
+    background: #DDFFF2;
+    border-radius: 5px;
+}
+
+.homiy_detail_info {
+  
+    width: 793px;
+    height: 300px;
+    margin: auto;
+    margin-top: 40px;
+
+    background: #FFFFFF;
+    border: 1px solid #EBEEFC;
+    box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.03);
+    border-radius: 12px;
+}
+
+.homiy_detail_subinfo {
+    padding: 32px 0 0 32px;
+}
+
+.homiy_detail_img {
+    padding: 15px 15px;
+    background: linear-gradient(0deg, #EAECF0, #EAECF0), url(image.png);
+    border: 1px solid #E0E7FF;
+    border-radius: 6px;
+}
+
+.homiy_detail_img_fish {
+    width: 100px;
+    font-family: 'Rubik', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 130%;
+    /* or 21px */
+
+    
+    letter-spacing:  1px;
+
+    color: #212121;
+    overflow-wrap: break-word;
+}
+
+.homiy_detail_phone {
+    width:370px;
+}
+
+.homiy_detail_phone span{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 1.125px;
+    text-transform: uppercase;
+
+    color: #B5B5C3;
+}
+.homiy_detail_phone p {
+    font-family: 'Rubik' ,sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 130%;
+    /* identical to box height, or 21px */
+
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.01em;
+
+    color: #212121;
+}
+
+.homiy_detail_subinfo span {
+    font-family: 'SF Pro Display', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    /* identical to box height, or 117% */
+
+
+    /* Dark / Dark 400 */
+
+    color: #28293D;
+
+}
+
+.homiy_detail_subinfo button {
+    
+    width: 166px;
+    margin-left: 370px;
+    padding: 8px 10px;
+    border:none;
+    color:#3365FC;
+    background: #EDF1FD;
+    border-radius: 5px;
+}
+
+.homiy_detail_subinfo button img {
+    margin-right: 20px;
+}
+
+.homiy_edit_input {
+    width: 450px;
+    height: 35px;
+    margin-left: 10px;
+    background: rgba(224, 231, 255, 0.2);
+    border: 1px solid #E0E7FF;
+    border-radius: 6px;
+    font-size: 14px;
+    padding-left: 10px;
+
+}

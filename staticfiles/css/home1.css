@@ -1,0 +1,203 @@
+.home_container{
+    display: flex;
+   
+
+}
+
+.home_container_1 {
+    display: inline;
+    
+}
+.home_container_2 {
+    width: 700px;
+    display: inline;
+    float: left;
+    
+}
+
+
+
+
+
+.ariza_topshirish_title {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 56px;
+    letter-spacing: 1%;
+}
+.ariza_topshirish_title_check {
+    font-weight: 700;
+    font-size: 16px;
+    font-family: 'Rubik', sans-serif;
+}
+.ariza_topshirish_form {
+    width: 576px;
+    padding-bottom: 100px;
+}
+
+
+.ariza_topshirish_form_label {
+    margin-top:30px;
+    font-family: 'Rubik', sans-serif;
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1.14px;
+    padding-bottom: 5px;
+}
+
+.ariza_topshirish_form_input {
+    width: 576px;
+    padding: 6px 10px;
+    border-radius: 5px;
+    border-color: #F9FAFF;
+    border-width: 1px;
+    background-color: #F9FAFF;
+    outline: none;
+}
+
+.ariza_topshirish_form_button {
+    margin-top: 30px;
+    width: 100%;
+    height: 50px;
+    border-radius: 6px;
+    color: white;
+    background: #2E5BFF;
+    border-width: 0;
+    font-weight: 600;
+   
+}
+
+
+.ariza_topshirish_form_checkbutton_input{
+    display: none;
+}
+
+
+.ariza_topshirish_form_checkbutton_span {
+    display: none;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border: 1px solid #3366ff;
+    transform: translate3d(-20px, -5px, 0);
+    border-radius: 50%;
+    z-index: 10;
+    text-align: center;
+    background-color: #2E5BFF;
+}
+
+.ariza_topshirish_form_checkbutton_input:checked + .ariza_topshirish_form_checkbutton_span{
+    display: inline;
+}
+
+
+
+.ariza_topshirish_form_checkbutton_span::after {
+    font-family: "Font Awesome 5 Free";
+    content: '\f00c';
+    font-weight: 900;
+    font-size: 14px;
+    color: white;
+}
+
+.ariza_topshirish_form_checkbutton {
+    margin: 10px 5px;
+    font-size: 14px;
+    width: 170px;
+    align-items: center;
+    height: 50px;
+    padding: 10px 30px;
+    background: #F9FAFF;
+    border: 2px solid ;
+    border-color: #E0E7FF;
+    border-radius: 5px;
+    font-weight: 700;
+    color:black;
+    cursor: pointer;
+    
+   
+}
+
+.ariza_topshirish_form_checkbutton_input:checked  .ariza_topshirish_form_checkbutton{
+    border-color: #3366ff;
+}
+
+.ariza_topshirish_form_checkbutton span {
+    font-size: 12px;
+    color: #2E5BFF;
+    padding-left: 5px;
+    
+}
+
+.ariza_topshirish_form_checkbutton a {
+   
+    color: black;
+}
+
+.ariza_topshirish_form_checkbutton a:hover {
+   
+    color: black;
+}
+
+
+
+
+
+.ariza_topshirish_form_checkbuttons  {
+    margin: 0 10px 0 0;
+
+}
+
+.ariza_topshirish_form_checkbutton2 {
+    
+    float: left;
+}
+
+
+
+
+.ariza_topshirish_form_add_nomi {
+    margin-top: 30px;
+    width: 576px;
+    padding: 6px 10px;
+    border-radius: 5px;
+    border-color: #F9FAFF;
+    border-width: 1px;
+    background-color: #F9FAFF;
+    outline: none;
+}
+
+.home_container_2 p {
+    margin-top: 100px;
+    padding-left: 120px;
+    font-size: 20px;
+
+}
+
+.home_container_prezident {
+    padding-left: 120px;
+    margin-top: 40px;
+}
+
+.home_container_prezident img {
+    border-radius: 10px;
+}
+
+.home_container_prezident_span1 {
+    font-weight: 700;
+}
+
+.home_container_prezident_span2 {
+    opacity: 0.5;
+}
+
+.home_container_prezident_div {
+    display: inline;
+    float: right;
+    margin-right: 250px;
+}
+
+
+

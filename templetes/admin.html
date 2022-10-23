@@ -1,0 +1,160 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="{% static 'css/mdb.min1.css' %}">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link rel="stylesheet" href="{% static 'css/home1.css' %}">
+        <link rel="stylesheet" href="{% static 'css/adminpanel.css' %}">
+        <link rel="stylesheet" href="{% static 'css/talaba_add1.css' %}">
+        <link rel="stylesheet" href="{% static 'css/homiy_detail1.css' %}">
+        
+        
+        
+        
+        <script src="{% static 'canvasjs.min.js' %}"></script>
+        <script src="{% static 'table.js' %}"></script>
+        <link rel='stylesheet' href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+
+        
+        <script type="text/javascript">
+            window.onload = function () {
+              var chart = new CanvasJS.Chart("chartContainer",
+              {
+                dataSeries:{
+                    cursor: "pointer"  
+                },
+                axisY: {
+                    labelFontSize: 14,
+                    labelFontColor: "grey",
+                    tickColor: "white",
+                    lineColor: "white",
+                    gridColor: "#B7B7B7",
+                },
+                axisX: {
+                    labelFontSize: 14,
+                    labelFontColor: "grey",
+                    interval: 1,
+                    tickColor: "white",
+                    gridColor: "EDF0FF",
+                    lineColor: "white",
+                    
+                },
+                zoomEnabled:true,
+                
+                animationEnabled: true,
+                title:{
+                
+                },
+                 data: [
+                    {
+                        dataSeries:{
+                            cursor: "pointer"  
+                          },
+                      
+                       
+                        
+                        markerColor: '#FF92AE', 
+                      
+                        markerSize: 0,  
+                        type: "spline",
+                        
+                        
+                        
+                        dataPoints: [
+                            { x:  1, label: 'yanvar', y: 1,lineColor: "#FF92AE" },
+                            { x:  2, label: 'fevral',y: 4,lineColor: "#FF92AE" },
+                            { x:  3, label: 'mart',y: 3,lineColor: "#FF92AE" },
+                            { x:  4, label: 'aprel',y: 2,lineColor: "#FF92AE" },
+                            { x:  5, label: 'may',y: 6,lineColor: "#FF92AE" },
+                            { x:  6, label: 'iyun',y: 5,lineColor: "#FF92AE" },
+                            { x:  7, label: 'iyul', y: 10,lineColor: "#FF92AE" },
+                            { x:  8, label: 'avgust', y: 1,lineColor: "#FF92AE" },
+                            { x:  9, label: 'sentabr', y: 8,lineColor: "#FF92AE" },
+                            { x:  10, label: 'oktabr', y: 7,lineColor: "#FF92AE" },
+                            { x:  11, label: 'noyabr', y: 2,lineColor: "#FF92AE" },
+                            { x:  12, label: 'dekabr', y: 3,lineColor: "#FF92AE" },
+                            
+                        ]
+                    } ,
+                    {
+                      
+                        markerColor: '#FF92AE', 
+                        
+                        markerSize: 0,  
+                        type: "spline",
+                      
+                        
+                        dataPoints: [
+                            { x:  1, label: 'yanvar',y: 1,lineColor: "#4C6FFF" },
+                            { x:  2, label: 'fevral',y: 2,lineColor: "#4C6FFF" },
+                            { x:  3, label: 'mart',y: 3,lineColor: "#4C6FFF" },
+                            { x:  4, label: 'aprel',y: 4,lineColor: "#4C6FFF" },
+                            { x:  5, label: 'may',y: 5,lineColor: "#4C6FFF" },
+                            { x:  6, label: 'iyun',y: 6,lineColor: "#4C6FFF" },
+                            { x:  7, label: 'iyul', y: 11,lineColor: "#4C6FFF" },
+                            { x:  8, label: 'avgust', y: 3,lineColor: "#4C6FFF" },
+                            { x:  9, label: 'sentabr', y: 8,lineColor: "#4C6FFF" },
+                            { x:  10, label: 'oktabr', y: 9,lineColor: "#4C6FFF" },
+                            { x:  11, label: 'noyabr', y: 1,lineColor: "#4C6FFF" },
+                            { x:  12, label: 'dekabr', y: 4,lineColor: "#4C6FFF" },
+                            
+                        ]
+                        }      
+                  
+                ]
+              });
+          
+              chart.render();
+            }
+            </script>
+            <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    </head>
+    <body style = 'background:#F5F5F7;'>
+        {% if user.is_superuser%}
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-white" style = 'width: 1360px; margin: auto;'>
+                
+                    <a class="navbar-brand mt-2 mt-lg-0 admin_panel_title" href="{% url 'admin_dashboard' %}">
+                        <div class = 'navbar_title_image'></div>
+                        <div>
+                        <p class = 'navbar_title_text'>METSENAT  </p>
+                        <p class = 'admin_panel_title_pro'> PRO</p>
+                        </div>
+                    </a>    
+                    
+                    <div class = 'admin_info'>
+                        <div class = 'admin_info_user'> 
+                            <span class = 'admin_info_user_span'>{{user.username}} </span>
+                            <img src = "{% static 'image/contacts-32.png' %}"  width = '20' height = '20'>
+                        </div>
+                        <div class = 'admin_info_logout'>
+                            <a href  = "{% url 'logout' %}">  <img src = "{% static 'image/logout.png' %}" width = '30' height = '25'> </a>
+                        </div>
+
+                    </div>
+                
+               
+            </nav>
+        </div>
+        
+        {% endif %}
+    
+
+
+
+
+        {% block content %}
+        {% endblock content %}
+       
+        <script src = "{% static 'js/mdb.min.js' %}"></script>
+        
+    </body>
+</html>

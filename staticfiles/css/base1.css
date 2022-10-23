@@ -1,0 +1,57 @@
+.navbar {
+    width: 1440px;
+    height: 88px;
+    top: 0%;
+    right: 0%;
+    left: 0%;
+    bottom: 0%;
+    margin: auto;
+    align-items: center;
+}
+
+.navbar_title {
+    padding-top: 10px;
+    display: inline-block;
+    padding-left: 250px;
+    align-items: center;
+    
+}
+.navbar_title_text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.navbar_title_logo2 {
+    color: white;
+    background-color: #E94A47;
+    font-weight: 100;
+    letter-spacing: 1px;
+    padding: 2px 5px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+.navbar_items {
+    padding-left: 100px;
+    align-items: center;
+}
+
+.navbar_item {
+    color: black;
+    padding: 0 15px;
+    font-weight: 600;
+    align-items: center;
+    font-size: 14px;
+}
+.navbar_item span {
+    padding-left: 5px;
+}
+
+.navbar_signup a {
+    margin-right: 200px;
+    color: #3366FF;
+    border: 2px solid;
+    border-radius: 8px;
+    border-color: #3366FF;
+    padding: 8px 20px;
+}
