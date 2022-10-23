@@ -12,6 +12,7 @@ django-rest-swagger = "*"
 environs = {extras = ["django"], version = "*"}
 psycopg2-binary = "*"
 whitenoise = "*"
+gunicorn = "*"
 
 [dev-packages]
 
