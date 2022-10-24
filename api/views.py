@@ -14,7 +14,7 @@ from .serializers import TalabalarSerializers
 # Create your views here.
 
 
-class HomePage(GenericAPIView):
+class HomePage(APIView):
     #serializer_class = HomiyCreateSerializers
     def get(self,request):
         talabalar = Talabalar.objects.values_list('contract')
@@ -150,7 +150,7 @@ class TalabalarDetailAPIView(GenericAPIView):
         return self.get(request,pk)
     
     
-class TalabalarAddAPIView(GenericAPIView):
+class TalabalarAddAPIView(APIView):
     #serializer_class = TalabalarCreateSerializers
     def get(self, request):
         turi = ['bakalavr', 'magister']

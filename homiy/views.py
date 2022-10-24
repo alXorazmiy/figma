@@ -274,7 +274,7 @@ def TalabalarAddPageView (request):
             create.save()
             
             id = Talabalar.objects.get(fish = request.POST.get('ism'))
-            return redirect(f'http://127.0.0.1:8000/talabalar/{id.id}')
+            return redirect(f'https://metsenat.herokuapp.com/talabalar/{id.id}')
     else:
     
         otm = Talabalar.objects.values_list('otm')
