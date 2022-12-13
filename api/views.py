@@ -1,7 +1,9 @@
 
 from django.shortcuts import render
+from requests import request
 from rest_framework.views import APIView
-from rest_framework.generics import GenericAPIView
+from rest_framework import viewsets
+from rest_framework.generics import GenericAPIView, ListAPIView
 from rest_framework.response import Response
 from django.forms.models import model_to_dict
 from drf_yasg.utils import swagger_auto_schema
@@ -10,13 +12,20 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 
 from homiy.models import Homiylar, Talabalar, Tolovlar
-from .serializers import TalabalarSerializers
+from .serializers import TalabalarSerializers,HomiylarCreateSerializers,HomiylarSerializers,HomiylarDetailSerializers,TalabalarAddGetSerializers
+from .serializers import TalabalarAddPostSerializers, TolovlarSerializers ,TolovlarDeleteSerializers
 # Create your views here.
 
 
-class HomePage(APIView):
-    #serializer_class = HomiyCreateSerializers
+class HomePage(GenericAPIView):
+    
+    
+    def get_serializer_class(self):
+        if self.request.method == 'POST':
+            return HomiylarCreateSerializers
+        return TalabalarSerializers
     def get(self,request):
+       
         talabalar = Talabalar.objects.values_list('contract')
         talabalar = sum( [item[0] for item in talabalar])
         
@@ -33,8 +42,6 @@ class HomePage(APIView):
         return Response(dict)
     
     def post(self, request):
-        print('yesssssssssss')
-        print(request.data)
         nomi = ''
         shaxs = 'jiymoniy'
         if request.data['nomi']:
@@ -49,16 +56,23 @@ class HomePage(APIView):
         )
         
         return Response({'Post': model_to_dict(post_new)})
+    
+    
 
-class HomiylarPage(APIView):
-    #serializer_class = HomiylarSerializers
+
+class HomiylarPage(GenericAPIView):
+    serializer_class = HomiylarSerializers
     def get(self, request):
         homiylar = Homiylar.objects.all().values('id', 'fish', 'phono', 'summasi', 'sarf_summa' ,'sana', 'holat')
-        print(homiylar)
         return Response(homiylar)
     
-class HomiylarDetailPage(APIView):
-    #serializer_class = HomiyUpdateSerializers
+    
+class HomiylarDetailPage(GenericAPIView):
+    def get_serializer_class(self):
+        if self.request.method == 'PUT':
+            return HomiylarDetailSerializers
+        return HomiylarSerializers
+  
     def get(self, request, pk):
         homiy = Homiylar.objects.get(id = pk)
         return Response(model_to_dict(homiy))
@@ -84,15 +98,18 @@ class HomiylarDetailPage(APIView):
         
         return Response(model_to_dict(homiy_update))
     
-class TalabalarAPIView(APIView):
-    #serializer_class = TalabalarSerializers
+class TalabalarAPIView(GenericAPIView):
+    serializer_class = TalabalarSerializers
     def get(self, request):
         talabalar = Talabalar.objects.all().values() 
         return Response(talabalar)
     
   
 class TalabalarDetailAPIView(GenericAPIView):
-    serializer_class = TalabalarSerializers
+    
+    
+    
+    #serializer_class = TalabalarSerializers
     def get(self, request,pk):
         talaba = Talabalar.objects.get(id = pk)
         serializers = TalabalarSerializers(talaba)
@@ -150,8 +167,36 @@ class TalabalarDetailAPIView(GenericAPIView):
         return self.get(request,pk)
     
     
-class TalabalarAddAPIView(APIView):
-    #serializer_class = TalabalarCreateSerializers
+    def get_serializer_class(self):
+        
+        if self.request.method == 'PUT':
+            print('put')
+            return TalabalarAddPostSerializers
+        
+        
+        if self.request.method == 'POST':
+            print('post')
+            return TolovlarSerializers
+        
+        if self.request.method == 'GET':
+            print('get')
+            return TalabalarSerializers
+        
+        if self.request.method == 'DESTROY':
+            print('delete')
+       
+        return TolovlarDeleteSerializers
+
+    
+    
+    
+class TalabalarAddAPIView(GenericAPIView):
+    
+    def get_serializer_class(self):
+        if self.request.method == 'POST':
+            return TalabalarAddPostSerializers
+        return TalabalarAddGetSerializers
+    
     def get(self, request):
         turi = ['bakalavr', 'magister']
         otmlar = set(Talabalar.objects.values_list('otm')) 
